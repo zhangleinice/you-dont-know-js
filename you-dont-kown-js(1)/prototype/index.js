@@ -83,3 +83,14 @@ console.log(Object.prototype.isPrototypeOf(f3)); // true
 console.log(Object.getPrototypeOf(f3));
 
 console.log(Object.getPrototypeOf(f3) === F3.prototype); // true
+
+function F4() {}
+let f4 = new F4();
+
+console.log(f4.constructor); // F4() {}
+console.log(f4.constructor.name); // 'F4'
+
+F4.prototype.constructor = function F5() {};
+
+console.log(f4.constructor); // F5(){}
+console.log(f4.constructor.name); // 'F5'
