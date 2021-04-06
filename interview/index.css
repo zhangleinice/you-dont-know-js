@@ -1,0 +1,43 @@
+/* 
+ *  1、绝对定位+margin：auto 
+ */
+.wrp1 { position: relative; }
+.box1 {
+    margin: auto;
+    position: absolute;
+    left: 0; right: 0; top: 0; bottom: 0;
+}
+
+/* 
+ * 2、绝对定位+margin反向偏移 
+ */
+.wrp2 { position: relative; }
+.box2 {
+    position: absolute;
+    top: 50%; left: 50%;
+    margin-left: -100px; 
+    margin-top: -75px; 
+}
+
+
+/* 
+ * 3、绝对定位+transform反向偏移 （相对自身宽高一半平移）
+ */
+
+.wrp3 { position: relative; }
+.box3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*
+ * 4. flex
+ */
+
+ #container{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
