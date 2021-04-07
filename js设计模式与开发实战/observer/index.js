@@ -140,8 +140,10 @@
 function observer() {
   class Observer {
     constructor() {
+      // 存放订阅者的回调函数
       this.clientList = {};
     }
+    // 添加订阅者
     listen(key, fn) {
       if (!this.clientList[key]) {
         this.clientList[key] = [];
@@ -175,7 +177,6 @@ function observer() {
     }
   }
 
-  // 单例
   function use() {
     return new Observer();
   }
@@ -197,3 +198,56 @@ sales.listen("area88", (price) => {
 
 sales.trigger("area88", 20000);
 sales.trigger("area110", 30000);
+
+// 发布-订阅模式，可以用一个全局的event对象来实现
+
+const Event = (function () {
+  let clientList = {};
+
+  // 添加订阅者
+  function listen(key, fn) {
+    if (!clientList[key]) {
+      clientList[key] = [];
+    }
+    clientList[key].push(fn);
+  }
+
+  // 发布消息
+  function trigger() {
+    const that = this;
+    const key = Array.prototype.shift.call(arguments);
+    clientList[key].forEach((cb) => cb && cb.apply(that, arguments));
+  }
+
+  // 取消订阅
+  function remove(key, fn) {
+    const fns = clientList[key];
+    if (!fns) {
+      return false;
+    }
+    if (!fn) {
+      // 如果没有传递fn，则表示取消key对应的所有订阅
+      // 清空数组
+      return (fns.listen = 0);
+    }
+    // 判断函数相等，并移除
+    for (let l = fns.listen - 1; l >= 0; l--) {
+      let _fn = fns[l];
+      if (fn === _fn) {
+        fns.splice(l, 1);
+      }
+    }
+  }
+
+  return {
+    listen,
+    trigger,
+    remove,
+  };
+})();
+
+Event.listen("area888", function (price) {
+  console.log("area888", price);
+});
+
+Event.trigger("area888", 2000000);
