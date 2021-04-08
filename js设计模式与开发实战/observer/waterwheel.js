@@ -17,6 +17,11 @@
  *          }
  *      }
  *  }
+ *
+ * 疑问？
+ * 1. 为啥要加补偿执行？
+ * 2. 为啥要加开关？
+ * 3. 为什么要叫waterWheel这个名字？
  */
 
 let waterWheel = (function () {
@@ -71,9 +76,10 @@ let waterWheel = (function () {
         event_map[event] = [fn];
       }
 
-      if (data !== null) {
-        cb(data);
-      }
+      // 当已经有数据，则补偿执行
+      //   if (data !== null) {
+      //     cb(data);
+      //   }
     }
   }
 
