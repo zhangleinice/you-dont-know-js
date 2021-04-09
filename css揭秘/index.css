@@ -1,0 +1,78 @@
+
+body {
+    font-size: 50px;
+    padding-left: 50px;
+}
+h1{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+body div {
+    font-size: 25px;
+    color: red;
+    width: 100px;
+    height: 100px;
+    margin-left: 30px;
+}
+
+.box{
+    border: 10px solid hsla(0, 0%, 100%, .5);
+    background: white;
+    background-clip: padding-box;
+}
+/* 多重边框 */
+/* .multiple-border{
+    width: 100px;
+    height: 100px;
+    background: yellowgreen;
+    box-shadow: 0 0 0 10px #655, 0 0 0 20px deeppink;
+} */
+.multiple-border{
+    background: yellowgreen;
+    border: 10px solid #655;
+    outline: 10px solid deeppink;
+}
+
+/* 背景定位 */
+/* .bg-position{
+    background: url('./img/WechatIMG4.jpeg') no-repeat #58a; 
+    background-size: 50% 50%;
+    background-position: right 20px bottom 20px;
+} */
+/* .bg-position{
+    box-sizing: border-box;
+    padding: 10px;
+    background: url('./img/WechatIMG4.jpeg') no-repeat #58a right bottom; 
+    background-size: 50% 50%;
+    background-origin: content-box;
+} */
+.bg-position{
+    width: 200px;
+    height: 200px;
+    background: url('./img/WechatIMG4.jpeg') no-repeat #58a; 
+    background-size: 50% 50%;
+    background-position: calc(100% - 20px) calc(100% - 20px);
+}
+/* 边框内圆角 */
+.border-radius{
+    background: tan;
+    border-radius: .8em;
+    padding: 1em;
+    box-shadow: 0 0 0 0.6em #655;
+    outline: .6em solid #655;
+}
+
+/* 条纹 */
+.stripe-h {
+    background: linear-gradient(#fb3 50%, #58a 50%);
+    background-size: 100% 25%;
+}
+.stripe-45 {
+    background: linear-gradient(90deg, #fb3 50%, #58a 50%);
+    background-size: 25% 100%;
+}
+.stripe-135 {
+    background: linear-gradient(135deg, #fb3 50%, #58a 50%);
+    /* background-size: 25% 100%; */
+}

@@ -1,12 +1,12 @@
 /**
- * 查找元素
+ * 查找多个元素
  * @param {*} selector
  * @param {*} context
  */
 function $$(selector, context) {
   context = context || document;
   const elements = context.querySelectorAll(selector);
-  return Array.prototype.slice.call(elements);
+  return Array.prototype.slice.call(elements)[0];
 }
 
 /**

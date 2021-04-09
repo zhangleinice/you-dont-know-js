@@ -4,15 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>css揭秘</title>
+    <script src="./util.js"></script>
 </head>
-<style>
-
+<style type="text/css">
+    @import url('index.css');
 </style>
 <body>
-    <div>css揭秘</div>
+    <h1>
+        <div class="multiple-border" >多重边框</div>
+        <div class="bg-position">背景定位</div>
+        <div class="border-radius">边框内圆角</div>
+        <div class="stripe-h">条纹</div>
+        <div class="stripe-45">条纹</div>
+        <div class="stripe-135">条纹</div>
+    </h1>
 </body>
 </html>
 
 <script>
+    $$('.multiple-border').addEventListener('click', function() {
+        console.log('multiple-border');
+    }, false)
 </script>
