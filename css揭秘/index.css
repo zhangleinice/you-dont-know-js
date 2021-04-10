@@ -66,13 +66,35 @@ body div {
 /* 条纹 */
 .stripe-h {
     background: linear-gradient(#fb3 50%, #58a 50%);
-    background-size: 100% 25%;
+    background-size: 100% 25px;
 }
-.stripe-45 {
+.stripe-90 {
     background: linear-gradient(90deg, #fb3 50%, #58a 50%);
-    background-size: 25% 100%;
+    background-size: 25px 100%;
 }
-.stripe-135 {
-    background: linear-gradient(135deg, #fb3 50%, #58a 50%);
-    /* background-size: 25% 100%; */
+
+.stripe-452 {
+    background: linear-gradient(45deg, #fb3 25%, #58a 0%, #58a 50%, #fb3 0%);
+    background-size: 100% 100%;
+}
+
+.stripe-45 {
+    background: linear-gradient(45deg, #fb3 25%, #58a 0%, #58a 50%, #fb3 0, #fb3 75%, #58a 0);
+    background-size: 35.3553390593px 35.3553390593px;
+}
+
+/* 更好的斜向条纹 */
+.stripe-good{
+    background: repeating-linear-gradient(45deg, #fb3, #fb3 25px, #58a 0, #58a 50px);
+}
+.stripe-60{
+    background: repeating-linear-gradient(60deg, #fb3, #fb3 20px, #58a 0, #58a 40px);
+}
+
+/* 网格 */
+.gride{
+    background: white;
+    background-image: linear-gradient(90deg, rgba(200, 0, 0, .5) 50%, transparent 0),
+                      linear-gradient(rgba(200, 0, 0, .5) 50%, transparent 0);
+    background-size: 30px 30px;
 }
