@@ -6,6 +6,7 @@
  *  name_map: {
  *      interface_name: {
  *          data: null,
+ *          is_on: false,
  *          event_map: {
  *              'data_change': []
  *                  ...支持自定义事件...
