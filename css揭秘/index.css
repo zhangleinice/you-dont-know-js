@@ -98,3 +98,12 @@ body div {
                       linear-gradient(rgba(200, 0, 0, .5) 50%, transparent 0);
     background-size: 30px 30px;
 }
+
+
+/* 三角形 */
+.trigon {
+    border: 10px solid rgb(0, 0, 0);
+    border-color: transparent transparent rgb(0, 0, 0) transparent;
+    border-width: 10px 100px 150px 100px;
+    width: 0;
+}
