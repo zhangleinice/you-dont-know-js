@@ -76,3 +76,53 @@ if (!Number.isNaN) {
     return n !== n;
   };
 }
+console.log("------------------------------");
+
+// 无穷数
+const m = 1 / 0;
+const n = -1 / 0;
+console.log("m", m); // Infinity
+console.log("n", n); // -Infinity
+console.log(m === n); // false
+
+console.log("------------------------------");
+
+// 判断两个值是否绝对相等
+if (!Object.is) {
+  Object.is = function (v1, v2) {
+    // is -0
+    if (v1 === 0 && v2 === 0) {
+      return 1 / v1 === 1 / v2;
+    }
+    //  is NaN
+    if (v1 !== v1) {
+      return v2 !== v2;
+    }
+    return v1 === v2;
+  };
+}
+
+console.log("------------------------------");
+
+// 值和引用
+function fn(x) {
+  x.push(4);
+  console.log("x1", x);
+
+  // 清空数组
+  x.length = 0;
+  x.push(5, 6, 7);
+  console.log("x2", x);
+}
+
+let s = [1, 2, 3];
+
+// fn(s);
+
+// console.log("s", s); // 5,6,7
+
+// 不会改变原数组
+fn(s.slice());
+console.log("s", s); // [1,2,3]
+
+console.log("------------------------------");
