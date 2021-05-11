@@ -2,8 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Home from "./home.js";
 
-const App = () => {
-  return <Home />;
-};
+const rootElement = document.getElementById("root");
 
-ReactDOM.render(<App />, document.getElementById("root"));
+function App() {
+  return <Home />;
+}
+
+export default App;
+
+ReactDOM.render(<App />, rootElement);

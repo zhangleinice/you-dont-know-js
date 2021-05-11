@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "../hooks/index";
 
 const Home = () => {
   const [count, setCount] = useState(0);

@@ -1,5 +1,3 @@
-/**
- *
- *
- * 闭包
- */
+import { useState } from "./usestate";
+
+export { useState };
