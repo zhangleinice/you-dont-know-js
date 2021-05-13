@@ -5,7 +5,7 @@ const friendlyErrorsWebpackPlugin = require("friendly-errors-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  devtool: "eval",
+  devtool: "eval-cheap-source-map",
   entry: {
     app: "./src/index.js",
   },
