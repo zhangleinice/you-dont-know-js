@@ -1,14 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Home from "./home.js";
+import State from "./state.js";
 import Test from "./test";
+import Effect from "./effect";
 
 const rootElement = document.getElementById("root");
 
 function App() {
   return (
     <React.Fragment>
-      <Home />
+      <State />
+      <Effect />
       <Test />
     </React.Fragment>
   );
