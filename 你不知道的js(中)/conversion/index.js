@@ -63,3 +63,7 @@ z.toString = function () {
 };
 
 console.log("z", Number(z));
+
+let aaa = null;
+
+console.log("aaaa", String(aaa));
