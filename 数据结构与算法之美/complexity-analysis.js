@@ -9,7 +9,6 @@ function findIdx(arr = [], x) {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === x) {
       pos = i;
-      // 找到则跳出循环
       break;
     }
   }
