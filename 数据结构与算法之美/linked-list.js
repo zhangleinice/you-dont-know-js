@@ -13,6 +13,7 @@ const isPalindrome = function (x) {
   return s === y;
 };
 
+// 优化
 const isPalindrome2 = function (x) {
   if (x < 0 || (x !== 0 && x % 10 === 0)) return false;
   let reverseNum = 0;
@@ -24,7 +25,7 @@ const isPalindrome2 = function (x) {
 };
 
 /**
- * LRU 缓存机制
+ * LRU 缓存机制（Map实现）
  *
  * Map 中的元素会保持其插入时的顺序
  *
@@ -58,7 +59,18 @@ LRUCache.prototype.put = function (key, value) {
   this.cache.set(key, value);
 };
 
-const map = new Map();
-map.set(1, 2);
-map.set(2, 3);
-console.log("map", map.get(2));
+/**
+ * 反转一个链表
+ * @param {*} head
+ * @returns
+ */
+const reverseList = function (head) {
+  let prev = null;
+  let curr = head;
+  while (curr) {
+    const next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
+  }
+};
