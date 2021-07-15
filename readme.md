@@ -21,7 +21,19 @@
  - 观察者模式阻塞流程问题？补偿机制？开关作用？
 
 # react-hooks
-  - 闭包，缓存，模块
+  - useState
+    - 原理：闭包缓存state，基于 Array+Cursor 来实现
+    - 不能在循环、判断内部使用 Hook，不能打乱cursor与state之间对应关系
+
+  - useEffect
+    - 作用和用途：相比于直接裸写在函数组件顶层，useEffect 能根据需要，避免多余的 render
+
+  - hooks vs class
+    - class 代码逻辑清晰（构造函数、componentDidMount 等）
+    - hooks 需要配合变量名和注释
+    - hooks 容易发生内存泄漏
+    - Hooks 对代码编写的要求较高，在没有有效机制保证代码可读性、规避风险的情况下，更倾向于class。
+
 
 # 数据结构与算法之美
   - 电商交易系统中的“订单”排序。订单有两个属性，一个是下单时间，另一个是订单金额？

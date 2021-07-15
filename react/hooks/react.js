@@ -79,32 +79,63 @@ import App from "../src/index";
 // export default react;
 
 /**
- * 把state放在一个数组中，避免每次调用
- * 断点调试看执行顺序
+ * 使用Array + Cursor保存多个state
  */
 
 const react = (function () {
+  // state
   let state = [];
-  // 控制 useState 初始化
   let curr = 0;
+  // effect
+  let allDeps = [];
+  let cursor = 0;
 
+  // 只执行一次
   function useState(initialState) {
     const current = curr;
     state[current] = state[current] || initialState;
     curr++;
 
+    // 多次执行
     function setState(newState) {
       state[current] = newState;
       // render
       ReactDOM.render(<App />, document.getElementById("root"));
       curr = 0;
+      cursor = 0;
     }
     // 分别记录了各自的current，保证setState的时候更改对应的state
     return [state[current], setState];
   }
 
+  function useEffect(cb, deps) {
+    if (!allDeps[cursor]) {
+      // 初次渲染
+      allDeps[cursor] = deps;
+      ++cursor;
+      cb();
+      return;
+    }
+
+    const currentCursor = cursor;
+    const rawDeps = allDeps[currentCursor];
+
+    // 检查deps是否改变
+    const isChange = rawDeps.some((dep, idx) => {
+      return dep !== deps[idx];
+    });
+
+    if (isChange) {
+      cb();
+      allDeps[currentCursor] = deps;
+    }
+
+    ++cursor;
+  }
+
   return {
     useState,
+    useEffect,
   };
 })();
 

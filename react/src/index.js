@@ -9,9 +9,9 @@ const rootElement = document.getElementById("root");
 function App() {
   return (
     <React.Fragment>
-      <State />
+      {/* <State /> */}
       <Effect />
-      <Test />
+      {/* <Test /> */}
     </React.Fragment>
   );
 }
